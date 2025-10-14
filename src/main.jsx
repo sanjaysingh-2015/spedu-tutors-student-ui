@@ -1,11 +1,14 @@
-import React from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import App from './App'
-import './index.css'
+// 👇 Add this line FIRST (must be before any imports)
+window.global ||= window;
+
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import App from "./App";
+import "./index.css";
 import { MessageProvider } from "./context/MessageContext";
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <MessageProvider>
@@ -13,4 +16,4 @@ createRoot(document.getElementById('root')).render(
       </MessageProvider>
     </BrowserRouter>
   </React.StrictMode>
-)
+);
