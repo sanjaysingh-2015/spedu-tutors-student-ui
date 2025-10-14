@@ -8,6 +8,8 @@ export const login = async (payload) => {
   localStorage.setItem('userRole', res.data.role)
   localStorage.setItem('loginAt', res.data.loginAt)
   localStorage.setItem('profileCompleted', res.data.profileCompleted)
+  localStorage.setItem('country', res.data.countryName)
+  localStorage.setItem('countryCode', res.data.countryCode)
   return res.data
 }
 

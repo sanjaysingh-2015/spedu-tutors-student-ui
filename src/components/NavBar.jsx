@@ -1,6 +1,7 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/images/SpEduTutorLogo.png";
+import ReactCountryFlag from "react-country-flag";
 import {
   ArrowRightOnRectangleIcon,
   ArrowLeftOnRectangleIcon,
@@ -19,7 +20,10 @@ export default function NavBar() {
   const userRole = localStorage.getItem("userRole");
   const loginAt = localStorage.getItem("loginAt");
   const loggedInUser = localStorage.getItem("loggedInUser");
-  const profileCompleted = localStorage.getItem('profileCompleted')
+  const profileCompleted = localStorage.getItem('profileCompleted');
+  const countryName = localStorage.getItem('country');
+  const countryCode = localStorage.getItem('countryCode');
+  const [countryFlag, setCountryFlag] = useState('');
   const initials = loggedInUser
     ? loggedInUser
         .split(" ")
@@ -52,7 +56,7 @@ export default function NavBar() {
     <div className="card flex justify-between items-center px-4 py-2">
       {/* Logo + Navigation */}
       <div className="flex items-center space-x-4">
-        <Link to={token ? "/dashboard" : "/login"}>
+        <Link to={token ? "/search" : "/login"}>
           <img src={logo} alt="spEdu Tutors" className="h-16 mr-4" />
         </Link>
 
@@ -65,7 +69,10 @@ export default function NavBar() {
                   <UserIcon className="w-6 h-6" />
                   <span>Me</span>
                 </Link>
-
+                <Link to="/search" className={`${commonCircle} bg-blue-100 text-blue-700 hover:bg-blue-200`}>
+                  <UserIcon className="w-6 h-6" />
+                  <span>Tutors</span>
+                </Link>
               </>) : <></>}
           </div>
         )}
@@ -82,7 +89,17 @@ export default function NavBar() {
               <span className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-semibold text-sm">
                 {initials}
               </span>
-              <span className="text-[0.9rem] text-blue-700 text-center">{loggedInUser}</span>
+              <span className="text-[1.0rem] text-blue-700 text-center">
+              <ReactCountryFlag
+              countryCode={countryCode}
+              svg
+              style={{
+                width: '1.35em',
+                height: '.75em',
+                borderRadius: '3px',
+              }} title={countryName} />
+              {loggedInUser}
+              </span>
               <span className="text-[0.5rem] text-green-800 text-center">
                 Logged in at: {loginAt}
               </span>
