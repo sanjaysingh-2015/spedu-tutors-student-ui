@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import ProfileTabs from "./pages/ProfileTabs";
+import ProfilePage from "./pages/ProfilePage";
 
 export default function App() {
   return (
@@ -15,7 +16,8 @@ export default function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/profile" element={<ProfileTabs />} />
+            <Route path="/profile-tab" element={<ProfileTabs />} />
+            <Route path="/profile" element={<ProfilePage />} />
           </Routes>
         </div>
       </div>
