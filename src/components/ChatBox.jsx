@@ -5,10 +5,11 @@ import axios from "axios";
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8084/chat-api";
 
-const ChatBox = ({ userId, tutorId, chatRoomId }) => {
+const ChatBox = ({ userId, tutorId, studentId }) => {
   const [stompClient, setStompClient] = useState(null);
   const [connected, setConnected] = useState(false);
   const [messages, setMessages] = useState([]);
+  const [chatRoomId, setChatRoomId] = useState("");
   const [messageContent, setMessageContent] = useState("");
   const messagesEndRef = useRef(null);
 
@@ -53,8 +54,18 @@ const ChatBox = ({ userId, tutorId, chatRoomId }) => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const res = await axios.get(`${API_BASE}/api/chat/${chatRoomId}/messages`);
-        setMessages(res.data);
+        // 1️⃣ Create or get existing chat room
+        const res = await axios.post(`${API_BASE}/api/chat/create-room`, {
+          tutorId,
+          studentId
+        });
+
+        const roomCode = res.data.roomCode;
+        // 3️⃣ Set chatRoomId state and open chat modal
+        setChatRoomId(roomCode);
+
+        const msgRes = await axios.get(`${API_BASE}/api/chat/${roomCode}/messages`);
+        setMessages(msgRes.data);
       } catch (err) {
         console.error("Error fetching messages", err);
       }
@@ -67,7 +78,7 @@ const ChatBox = ({ userId, tutorId, chatRoomId }) => {
       console.log(messageContent);
     if (stompClient && connected && messageContent.trim() !== "") {
       const chatMessage = {
-        senderId: userId,
+        senderId: studentId,
         content: messageContent.trim(),
         roomId: chatRoomId,
         sentAt: new Date().toISOString(),
@@ -98,12 +109,12 @@ const ChatBox = ({ userId, tutorId, chatRoomId }) => {
           <div
             key={idx}
             className={`flex ${
-              msg.senderId === userId ? "justify-end" : "justify-start"
+              msg.senderId === studentId ? "justify-end" : "justify-start"
             }`}
           >
             <div
               className={`px-4 py-2 rounded-2xl max-w-xs break-words ${
-                msg.senderId === userId
+                msg.senderId === studentId
                   ? "bg-blue-600 text-white"
                   : "bg-gray-200 text-gray-800"
               }`}

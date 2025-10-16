@@ -18,6 +18,7 @@ export default function FindTutors() {
   const [keyword, setKeyword] = useState("");
   const [student, setStudent] = useState(null);
   const studentId = localStorage.getItem("studentId");
+  const userId = localStorage.getItem("userId");
   const [studentCode, setStudentCode] = useState('');
   const [showChatModal, setShowChatModal] = useState(false);
   const [selectedTutor, setSelectedTutor] = useState(null);
@@ -151,7 +152,8 @@ export default function FindTutors() {
         {showChatModal && selectedTutor && (
         <ChatModal
           tutor={selectedTutor}
-          studentId={student?.code || "S789"}
+          studentId={studentId}
+          userId={userId}
           apiBase="http://localhost:8084/chat-api"
           onClose={() => setShowChatModal(false)}
         />

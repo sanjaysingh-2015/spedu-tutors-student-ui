@@ -1,10 +1,8 @@
 import React from "react";
 import ChatBox from "./ChatBox";
 
-export default function ChatModal({ tutor, studentId, apiBase, onClose }) {
+export default function ChatModal({ tutor, studentId, userId, apiBase, onClose }) {
   if (!tutor) return null;
-  console.log(tutor);
-  console.log(studentId);
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-white rounded-2xl shadow-lg w-full max-w-lg p-4 relative">
@@ -21,7 +19,8 @@ export default function ChatModal({ tutor, studentId, apiBase, onClose }) {
 
         <ChatBox
           chatRoomId={tutor.code+"_"+studentId}
-          userId={studentId}
+          userId={userId}
+          studentId={studentId}
           tutorId={tutor.code}
           apiBase={apiBase}
         />
