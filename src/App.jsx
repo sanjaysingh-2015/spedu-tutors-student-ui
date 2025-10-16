@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import ProfileTabs from "./pages/ProfileTabs";
 import ProfilePage from "./pages/ProfilePage";
 import FindTutors from "./pages/FindTutors";
+import Payment from "./pages/Payment";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
             <Route path="/profile-tab" element={<ProfileTabs />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/search" element={<FindTutors />} />
+            <Route path="/payment" element={<Payment />} />
           </Routes>
         </div>
       </div>
