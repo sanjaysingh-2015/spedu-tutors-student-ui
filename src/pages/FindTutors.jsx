@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   getTutors,
   getSuggestedTutors,
@@ -22,7 +23,7 @@ export default function FindTutors() {
   const [studentCode, setStudentCode] = useState('');
   const [showChatModal, setShowChatModal] = useState(false);
   const [selectedTutor, setSelectedTutor] = useState(null);
-
+  const navigate = useNavigate();
 
   // ✅ Modal state
   const [fileUrl, setFileUrl] = useState(null);
@@ -60,6 +61,9 @@ export default function FindTutors() {
     fetchTutors(keyword);
   };
 
+  const handleBookClass = (tutorCode) => {
+    navigate(`/book/${tutorCode}`);
+  };
   // ✅ Single handler to preview tutor’s resume
   const handleShowFile = async (tutorCode) => {
     try {
@@ -78,6 +82,7 @@ export default function FindTutors() {
       console.error("Error fetching file:", error);
     }
   };
+
 
   return (
     <div
@@ -130,6 +135,7 @@ export default function FindTutors() {
                 tutor={t}
                 onShowFile={handleShowFile}
                 onStartChat={handleStartChat} // ✅ new prop
+                onBookClass={handleBookClass}
               />
             ))}
           </div>
@@ -162,7 +168,7 @@ export default function FindTutors() {
   );
 }
 
-function TutorCard({ tutor, onShowFile, onStartChat }) {
+function TutorCard({ tutor, onShowFile, onStartChat, onBookClass }) {
   return (
     <div className="bg-white/90 backdrop-blur-sm p-5 rounded-2xl shadow-md hover:shadow-lg transition hover:-translate-y-1">
       <div className="flex items-center justify-between mb-3">
@@ -206,7 +212,7 @@ function TutorCard({ tutor, onShowFile, onStartChat }) {
           💬 Chat
         </button>
         <button
-          onClick={() => onShowFile(tutor.code)}
+          onClick={() => onBookClass(tutor.code)}
           className="text-blue-600 underline hover:text-blue-800"
         >
           Book a Class

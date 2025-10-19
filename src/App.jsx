@@ -7,6 +7,8 @@ import ProfileTabs from "./pages/ProfileTabs";
 import ProfilePage from "./pages/ProfilePage";
 import FindTutors from "./pages/FindTutors";
 import Payment from "./pages/Payment";
+import PaymentOverview from "./pages/PaymentOverview";
+import BookSlotCalendar from "./pages/BookSlotCalendar";
 
 export default function App() {
   return (
@@ -22,6 +24,8 @@ export default function App() {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/search" element={<FindTutors />} />
             <Route path="/payment" element={<Payment />} />
+            <Route path="/payment-overview" element={<PaymentOverview />} />
+            <Route path="/book/:tutorId" element={<BookSlotCalendar />} />
           </Routes>
         </div>
       </div>
