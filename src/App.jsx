@@ -9,6 +9,9 @@ import FindTutors from "./pages/FindTutors";
 import Payment from "./pages/Payment";
 import PaymentOverview from "./pages/PaymentOverview";
 import BookSlotCalendar from "./pages/BookSlotCalendar";
+import FindClasses from "./pages/FindClasses";
+import BookClass from "./pages/BookClass";
+import MyClasses from "./pages/MyClasses";
 
 export default function App() {
   return (
@@ -26,6 +29,9 @@ export default function App() {
             <Route path="/payment" element={<Payment />} />
             <Route path="/payment-overview" element={<PaymentOverview />} />
             <Route path="/book/:tutorId" element={<BookSlotCalendar />} />
+            <Route path="/classes" element={<FindClasses />} />
+            <Route path="/book-class/:classId" element={<BookClass />} />
+            <Route path="/my-classes" element={<MyClasses />} />
           </Routes>
         </div>
       </div>

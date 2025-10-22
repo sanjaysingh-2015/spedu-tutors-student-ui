@@ -21,7 +21,7 @@ const fetchSlots = async () => {
       if (Array.isArray(res.data.bookings)) {
         const formatted = res.data.bookings.map((day) => ({
           id: `${day.eventId}-${day.startTime}-${day.endTime}`,
-          title: `${day.startTime} - ${day.endTime} (${day.availableCount})`,
+          title: `${day.eventName || "Session"}`,
           start: `${day.eventDate}T00:00:00`,
           backgroundColor: "#22c55e", // bright green
           borderColor: "#15803d", // darker green
@@ -119,6 +119,17 @@ const fetchSlots = async () => {
         eventClick={handleEventClick}
         height="auto"
         eventDisplay="block"
+        eventContent={(arg) => {
+            const { availableCount } = arg.event.extendedProps;
+            return {
+              html: `
+                <div style="font-weight: 600;">${arg.event.title}</div>
+                <div style="font-size: 12px; line-height: 1.2;">
+                  Available(${availableCount})
+                </div>
+              `,
+            };
+          }}
       />
 
       <button

@@ -78,6 +78,14 @@ export default function NavBar() {
                   <BanknotesIcon className="w-6 h-6" />
                   <span>Payment</span>
                 </Link>
+                <Link to="/classes" className={`${commonCircle} bg-blue-100 text-blue-700 hover:bg-blue-200`}>
+                  <UserIcon className="w-6 h-6" />
+                  <span>Classes</span>
+                </Link>
+                <Link to="/my-classes" className={`${commonCircle} bg-blue-100 text-blue-700 hover:bg-blue-200`}>
+                  <BanknotesIcon className="w-6 h-6" />
+                  <span>MyClasses</span>
+                </Link>
               </>) : <></>}
           </div>
         )}
