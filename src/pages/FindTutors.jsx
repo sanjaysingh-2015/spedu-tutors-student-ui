@@ -55,8 +55,12 @@ export default function FindTutors() {
 
   const handleSearch = () => fetchTutors(keyword);
 
-  const handleBookClass = (tutorCode) => {
+  const handleBookSession = (tutorCode) => {
     navigate(`/book/${tutorCode}`);
+  };
+
+  const handleBookClass = (tutorCode) => {
+    navigate(`/classes/${tutorCode}`);
   };
 
   const handleShowFile = async (tutorCode) => {
@@ -117,6 +121,7 @@ export default function FindTutors() {
               tutors={suggestedTutors}
               onShowFile={handleShowFile}
               onStartChat={handleStartChat}
+              onBookSession={handleBookSession}
               onBookClass={handleBookClass}
             />
           </div>
@@ -134,6 +139,7 @@ export default function FindTutors() {
               tutors={tutors}
               onShowFile={handleShowFile}
               onStartChat={handleStartChat}
+              onBookSession={handleBookSession}
               onBookClass={handleBookClass}
             />
           ) : (
@@ -170,7 +176,7 @@ export default function FindTutors() {
   );
 }
 
-function TutorGrid({ tutors, onShowFile, onStartChat, onBookClass }) {
+function TutorGrid({ tutors, onShowFile, onStartChat, onBookClass, onBookSession }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
       {tutors.map((tutor) => (
@@ -179,6 +185,7 @@ function TutorGrid({ tutors, onShowFile, onStartChat, onBookClass }) {
           tutor={tutor}
           onShowFile={onShowFile}
           onStartChat={onStartChat}
+          onBookSession={onBookSession}
           onBookClass={onBookClass}
         />
       ))}
@@ -186,7 +193,7 @@ function TutorGrid({ tutors, onShowFile, onStartChat, onBookClass }) {
   );
 }
 
-function TutorCard({ tutor, onShowFile, onStartChat, onBookClass }) {
+function TutorCard({ tutor, onShowFile, onStartChat, onBookClass, onBookSession }) {
   return (
     <div className="bg-gradient-to-br from-white to-blue-50 p-5 rounded-2xl shadow-md hover:shadow-xl transition-all hover:-translate-y-1 border border-gray-100">
       <div className="flex items-center justify-between mb-3">
@@ -230,7 +237,7 @@ function TutorCard({ tutor, onShowFile, onStartChat, onBookClass }) {
           💬 Chat
         </button>
         <button
-          onClick={() => onBookClass(tutor.code)}
+          onClick={() => onBookSession(tutor.code)}
           className="px-3 py-1.5 rounded-full bg-blue-100 text-blue-700 font-medium text-sm hover:bg-blue-200 transition"
         >
           🕒 Book Session

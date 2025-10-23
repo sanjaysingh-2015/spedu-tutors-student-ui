@@ -57,7 +57,7 @@ export default function NavBar() {
     <div className="card flex justify-between items-center px-4 py-2">
       {/* Logo + Navigation */}
       <div className="flex items-center space-x-4">
-        <Link to={token ? "/search" : "/login"}>
+        <Link to={token ? "/dashboard" : "/login"}>
           <img src={logo} alt="spEdu Tutors" className="h-16 mr-4" />
         </Link>
 
@@ -69,22 +69,6 @@ export default function NavBar() {
                 <Link to="/profile" className={`${commonCircle} bg-blue-100 text-blue-700 hover:bg-blue-200`}>
                   <UserIcon className="w-6 h-6" />
                   <span>Me</span>
-                </Link>
-                <Link to="/search" className={`${commonCircle} bg-blue-100 text-blue-700 hover:bg-blue-200`}>
-                  <UserIcon className="w-6 h-6" />
-                  <span>Tutors</span>
-                </Link>
-                <Link to="/payment" className={`${commonCircle} bg-blue-100 text-blue-700 hover:bg-blue-200`}>
-                  <BanknotesIcon className="w-6 h-6" />
-                  <span>Payment</span>
-                </Link>
-                <Link to="/classes" className={`${commonCircle} bg-blue-100 text-blue-700 hover:bg-blue-200`}>
-                  <UserIcon className="w-6 h-6" />
-                  <span>Classes</span>
-                </Link>
-                <Link to="/my-classes" className={`${commonCircle} bg-blue-100 text-blue-700 hover:bg-blue-200`}>
-                  <BanknotesIcon className="w-6 h-6" />
-                  <span>MyClasses</span>
                 </Link>
               </>) : <></>}
           </div>

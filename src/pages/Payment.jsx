@@ -62,7 +62,7 @@ export default function Payment() {
 
         setTimeout(() => {
           setShowModal(false);
-          const redirectUrl = `http://localhost:5174/payment-overview?status=${data.paymentStatus}&txn=${data.transactionNumber}`;
+          const redirectUrl = `http://localhost:5176/payment-overview?status=${data.paymentStatus}&txn=${data.transactionNumber}`;
           window.location.href = redirectUrl;
         }, 10000);
       }

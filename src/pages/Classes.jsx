@@ -5,7 +5,6 @@ import { BookOpenIcon, CalendarIcon, ClockIcon, UsersIcon } from "@heroicons/rea
 import backgroundImage from "../assets/images/student-bg.jpg";
 
 export default function FindClasses() {
-  const { tutorId } = useParams();
   const [classes, setClasses] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -17,7 +16,7 @@ export default function FindClasses() {
   const fetchClasses = async () => {
     setLoading(true);
     try {
-      const res = await getClassesByTutor(tutorId);
+      const res = await getAllClasses();
       setClasses(res.data);
     } finally {
       setLoading(false);
