@@ -38,7 +38,7 @@ export default function NavBar() {
     if (token && profileCompleted === "false" && location.pathname !== "/profile-tab") {
       navigate("/profile-tab", { replace: true });
     }
-    //fetchWallet();
+    fetchWallet();
   }, [navigate, location.pathname]);
 
   const handleLogout = () => {
