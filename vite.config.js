@@ -14,16 +14,16 @@ export default defineConfig({
     }),
   ],
   define: {
-    global: "globalThis", // 👈 critical line for sockjs-client
-  },server: {
-        port: 5174, // ✅ your React dev port (can be 5173/5174)
-        proxy: {
-          // ✅ any request starting with /gateway-api will be forwarded to backend
-          "/student-api": {
-            target: "http://localhost:8083", // your Spring Boot backend
-            changeOrigin: true,
-            secure: false,
-          },
-        },
+    global: "globalThis", // 👈 required for SockJS
+  },
+  server: {
+    port: 5174,
+    proxy: {
+      "/student-api": {
+        target: "http://localhost:8083",
+        changeOrigin: true,
+        secure: false,
       },
-    });
+    },
+  },
+});
