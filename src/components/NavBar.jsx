@@ -118,9 +118,6 @@ export default function NavBar() {
           <>
             {/* Wallet Display */}
             <div className="text-sm text-center">
-{/*               <p className={`font-semibold ${getWalletColor(wallet.balance)}`}> */}
-{/*                 💰 Wallet: ₹{wallet.balance} */}
-{/*               </p> */}
               <p className="text-[0.75rem] italic text-gray-600">
                 {getMotivation()}
               </p>
