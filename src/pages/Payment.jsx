@@ -49,7 +49,7 @@ export default function Payment() {
   // ✅ Handle messages from gateway iframe
   useEffect(() => {
     const handleMessage = (event) => {
-      if (!event.origin.includes("localhost:8085")) return;
+      if (!event.origin.includes("https://spedu-gatepay-payment-436077983835.asia-south2.run.app")) return;
 
       const data = event.data;
       console.log("🟢 Message received from gateway:", data);
@@ -62,7 +62,7 @@ export default function Payment() {
 
         setTimeout(() => {
           setShowModal(false);
-          const redirectUrl = `http://localhost:5176/payment-overview?status=${data.paymentStatus}&txn=${data.transactionNumber}`;
+          const redirectUrl = `https://student-ui-436077983835.asia-south2.run.app/payment-overview?status=${data.paymentStatus}&txn=${data.transactionNumber}`;
           window.location.href = redirectUrl;
         }, 10000);
       }
