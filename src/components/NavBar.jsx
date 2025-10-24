@@ -41,6 +41,10 @@ export default function NavBar() {
     fetchWallet();
   }, [navigate, location.pathname]);
 
+  useEffect(() => {
+      fetchWallet();
+  }, []);
+
   const handleLogout = () => {
     localStorage.removeItem("spedu_token");
     navigate("/login");
