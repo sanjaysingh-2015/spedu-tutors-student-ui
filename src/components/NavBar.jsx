@@ -40,10 +40,6 @@ export default function NavBar() {
     }
   }, [navigate, location.pathname]);
 
-  // Fetch wallet once on mount
-  useEffect(() => {
-    fetchWallet();
-  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("spedu_token");
@@ -78,6 +74,7 @@ export default function NavBar() {
       const res = await getWallet();
       setWallet(res.data || {});
   }
+
   return (
     <div className="card flex justify-between items-center px-4 py-2 shadow-md bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl">
       {/* Left side: Logo + Navigation */}
@@ -121,9 +118,9 @@ export default function NavBar() {
           <>
             {/* Wallet Display */}
             <div className="text-sm text-center">
-              <p className={`font-semibold ${getWalletColor(wallet.balance)}`}>
-                💰 Wallet: ₹{wallet.balance}
-              </p>
+{/*               <p className={`font-semibold ${getWalletColor(wallet.balance)}`}> */}
+{/*                 💰 Wallet: ₹{wallet.balance} */}
+{/*               </p> */}
               <p className="text-[0.75rem] italic text-gray-600">
                 {getMotivation()}
               </p>
