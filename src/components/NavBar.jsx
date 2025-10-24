@@ -38,11 +38,11 @@ export default function NavBar() {
     if (token && profileCompleted === "false" && location.pathname !== "/profile-tab") {
       navigate("/profile-tab", { replace: true });
     }
-    fetchWallet();
   }, [navigate, location.pathname]);
 
+  // Fetch wallet once on mount
   useEffect(() => {
-      fetchWallet();
+    fetchWallet();
   }, []);
 
   const handleLogout = () => {
