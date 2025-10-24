@@ -74,33 +74,6 @@ export default function Dashboard() {
       day: "numeric",
     });
 
-  const tiles = [
-    {
-      title: "Find Tutors",
-      icon: <UserIcon className="w-10 h-10 text-blue-600" />,
-      link: "/search",
-      color: "from-blue-100 to-blue-50 hover:from-blue-200 hover:to-blue-100",
-    },
-    {
-      title: "My Classes",
-      icon: <AcademicCapIcon className="w-10 h-10 text-indigo-600" />,
-      link: "/my-classes",
-      color: "from-indigo-100 to-indigo-50 hover:from-indigo-200 hover:to-indigo-100",
-    },
-    {
-      title: "Payments",
-      icon: <BanknotesIcon className="w-10 h-10 text-green-600" />,
-      link: "/payment",
-      color: "from-green-100 to-green-50 hover:from-green-200 hover:to-green-100",
-    },
-    {
-      title: "Explore Courses",
-      icon: <SparklesIcon className="w-10 h-10 text-purple-600" />,
-      link: "/classes",
-      color: "from-purple-100 to-purple-50 hover:from-purple-200 hover:to-purple-100",
-    },
-  ];
-
   return (
     <Layout>
       <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 p-8">
@@ -124,22 +97,6 @@ export default function Dashboard() {
                 View Profile
               </Link>
             </div>
-          </div>
-
-          {/* Tiles */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
-            {tiles.map((tile, idx) => (
-              <Link
-                key={idx}
-                to={tile.link}
-                className={`rounded-2xl shadow-md bg-gradient-to-br ${tile.color} p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-transform transform hover:-translate-y-1 hover:shadow-lg`}
-              >
-                <div className="mb-3">{tile.icon}</div>
-                <h3 className="text-sm font-semibold text-gray-800">
-                  {tile.title}
-                </h3>
-              </Link>
-            ))}
           </div>
 
             {/* 🌤 Today's Sessions Section */}

@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from './components/NavBar'
+import DashboardBar from './components/DashboardBar'
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
@@ -13,11 +14,13 @@ import FindClasses from "./pages/FindClasses";
 import BookClass from "./pages/BookClass";
 import MyClasses from "./pages/MyClasses";
 import Classes from "./pages/Classes";
+import Sessions from "./pages/Sessions";
 
 export default function App() {
   return (
       <div>
         <NavBar />
+        <DashboardBar />
         <div className="container">
           <Routes>
             <Route path="/" element={<Login />} />
@@ -34,6 +37,7 @@ export default function App() {
             <Route path="/classes" element={<Classes />} />
             <Route path="/book-class/:classId" element={<BookClass />} />
             <Route path="/my-classes" element={<MyClasses />} />
+            <Route path="/my-sessions" element={<Sessions />} />
           </Routes>
         </div>
       </div>
