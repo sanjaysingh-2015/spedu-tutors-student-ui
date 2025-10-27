@@ -20,7 +20,6 @@ export default function App() {
   return (
       <div>
         <NavBar />
-        <DashboardBar />
         <div className="container">
           <Routes>
             <Route path="/" element={<Login />} />
