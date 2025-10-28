@@ -16,6 +16,11 @@ import MyClasses from "./pages/MyClasses";
 import Classes from "./pages/Classes";
 import Sessions from "./pages/Sessions";
 
+import JavaMasteryCourse from "./pages/JavaMasteryCourse";
+import SpringBootCourse from "./pages/SpringBootCourse";
+import DatabaseCourse from "./pages/DatabaseCourse";
+import CloudComputing from "./pages/CloudComputing";
+
 export default function App() {
   return (
       <div>
@@ -37,6 +42,10 @@ export default function App() {
             <Route path="/book-class/:classId" element={<BookClass />} />
             <Route path="/my-classes" element={<MyClasses />} />
             <Route path="/my-sessions" element={<Sessions />} />
+            <Route path="/courses/java-mastery" element={<JavaMasteryCourse />} />
+            <Route path="/courses/spring-boot" element={<SpringBootCourse />} />
+            <Route path="/courses/databases" element={<DatabaseCourse />} />
+            <Route path="/courses/cloud-computing" element={<CloudComputing />} />
           </Routes>
         </div>
       </div>

@@ -109,7 +109,7 @@ function ClassCard({ cls, onBookClass }) {
 
       <div className="flex justify-between items-center">
         <a
-          href={cls.courseContentUrl}
+          href={cls.uiPath}
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 underline hover:text-blue-800 text-sm"
