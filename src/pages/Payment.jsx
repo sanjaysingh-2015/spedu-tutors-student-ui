@@ -62,7 +62,7 @@ export default function Payment() {
 
         setTimeout(() => {
           setShowModal(false);
-          const redirectUrl = `https://student-ui-436077983835.asia-south2.run.app/payment-overview?status=${data.paymentStatus}&txn=${data.transactionNumber}`;
+          const redirectUrl = `https://student.speducation.co.in/payment-overview?status=${data.paymentStatus}&txn=${data.transactionNumber}`;
           window.location.href = redirectUrl;
         }, 10000);
       }
