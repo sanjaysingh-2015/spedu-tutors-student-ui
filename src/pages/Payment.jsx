@@ -49,7 +49,7 @@ export default function Payment() {
   // ✅ Handle messages from gateway iframe
   useEffect(() => {
     const handleMessage = (event) => {
-      if (!event.origin.includes("https://spedu-gatepay-payment-436077983835.asia-south2.run.app")) return;
+      if (!event.origin.includes("https://payment.speducation.co.in")) return;
 
       const data = event.data;
       console.log("🟢 Message received from gateway:", data);
