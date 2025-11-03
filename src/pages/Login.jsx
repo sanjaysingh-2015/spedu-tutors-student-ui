@@ -23,7 +23,7 @@ export default function Login() {
 
     return (
       <div className="max-w-md mx-auto mt-12 card">
-        <h3 className="text-xl font-semibold mb-4">Tutor Portal Login</h3>
+        <h3 className="text-xl font-semibold mb-4">Student Portal Login</h3>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <input className="input" placeholder="Email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
