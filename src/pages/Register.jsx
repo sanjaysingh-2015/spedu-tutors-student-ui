@@ -13,7 +13,7 @@ export default function Register() {
   };
 
   return (
-    <div className="flex flex-col justify-center h-screen">
+    <div className="max-w-md mx-auto mt-12 card">
       <h2 className="text-xl mb-4">Register Yourself</h2>
       <form onSubmit={handleSubmit} className="bg-white p-6 shadow rounded w-96">
         <input type="text" placeholder="User Name"
